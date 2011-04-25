@@ -3,7 +3,7 @@ class EtsyAdvancedSearchPage
 
   attr_accessor :sub_category_select, :search_field, :search_button
 
-  URLS = { :production => "﻿﻿www.etsy.com/search_advanced.php" }
+  URLS = { :production => "http://www.etsy.com/search_advanced.php" }
 
   def initialize(browser, visit = false)
     @browser = browser

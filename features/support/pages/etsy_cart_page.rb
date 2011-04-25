@@ -1,7 +1,7 @@
 class EtsyCartPage
   include PageMixIn
 
-  URLS = { :production => "﻿www.etsy.com/cart?ref=so_cart" }
+  URLS = { :production => "http://www.etsy.com/cart" }
 
   attr_accessor :checkout_header, :remove_link, :first_item_name_link
 
