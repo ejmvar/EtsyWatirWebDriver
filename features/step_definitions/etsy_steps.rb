@@ -1,11 +1,9 @@
 Given /^I am searching on Etsy\.com$/ do
   @advanced_search_page = EtsyAdvancedSearchPage.new(@browser, true)
-  @advanced_search_page.title.should == "Etsy :: Advanced Search"
 end
 
 Given /^I am on Etsy\.com$/ do
   @etsy_home_page = EtsyHomePage.new(@browser, true)
-  @etsy_home_page.title.should == "Etsy - Your place to buy and sell all things handmade, vintage, and supplies"
 end
 
 Given /^I am on the Etsy cart page$/ do
@@ -27,9 +25,7 @@ end
 
 When /^I want to browse through a treasury gallery$/ do
   @etsy_buy_page = @etsy_home_page.click_buy
-  @etsy_buy_page.title.should == "Etsy - Buy"
   @etsy_treasury_page = @etsy_buy_page.click_treasury_button
-  @etsy_treasury_page.title.should == "Etsy - Treasury"
 end
 
 When /^an item is added to the cart$/ do

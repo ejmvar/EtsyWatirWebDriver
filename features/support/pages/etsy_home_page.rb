@@ -2,6 +2,7 @@ class EtsyHomePage
   include PageMixIn
 
   URLS = { :production => "http://www.etsy.com/" }
+  TITLE = "Etsy - Your place to buy and sell all things handmade, vintage, and supplies"
 
   attr_accessor :buy_link
 
@@ -9,6 +10,7 @@ class EtsyHomePage
     @browser = browser
     @buy_link = @browser.link(:text => "Buy")
     @browser.goto URLS[:production] if visit
+    @browser.title.should == TITLE
     super
   end
 
