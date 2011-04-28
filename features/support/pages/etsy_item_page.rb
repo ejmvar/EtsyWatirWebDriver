@@ -1,13 +1,13 @@
-class EtsyItemPage
-  include PageMixIn
+class EtsyItemPage < EtsyBasePage
+  TITLE = /.+/
 
   attr_accessor :add_to_cart_button, :item_title
 
-  def initialize(browser)
+  def initialize browser
     @browser = browser
     @add_to_cart_button = @browser.button(:value => "Add to Cart")
     @item_title = @browser.div(:id => "item-title")
-    super
+    super TITLE
   end
 
   def item_title_text
@@ -18,5 +18,4 @@ class EtsyItemPage
     self.add_to_cart_button.click
     EtsyCartPage.new(@browser, false)
   end
-
 end

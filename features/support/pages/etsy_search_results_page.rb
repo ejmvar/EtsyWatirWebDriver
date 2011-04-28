@@ -1,14 +1,14 @@
-class EtsySearchResultsPage
-  include PageMixIn
+class EtsySearchResultsPage < EtsyBasePage
+  TITLE = /^.+ on Etsy, a global handmade and vintage marketplace\.$/
 
   attr_accessor :search_results, :spelling, :first_result_link
 
-  def initialize(browser)
+  def initialize browser
     @browser = browser
     @search_results = @browser.h1(:class => "summary")
     @spelling = @browser.p(:class => "spelling")
     @first_result_link = @browser.link(:class => "listing-thumb")
-    super
+    super TITLE
   end
 
   def search_results_text
@@ -23,5 +23,4 @@ class EtsySearchResultsPage
     self.first_result_link.click
     EtsyItemPage.new(@browser)
   end
-
 end

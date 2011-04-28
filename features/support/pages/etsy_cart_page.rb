@@ -1,17 +1,15 @@
-class EtsyCartPage
-  include PageMixIn
-
-  URLS = { :production => "http://www.etsy.com/cart" }
+class EtsyCartPage < EtsyBasePage
+  TITLE = "Etsy - Shopping Cart"
+  URL = BASE_URL + "cart"
 
   attr_accessor :checkout_header, :remove_link, :first_item_name_link
 
-  def initialize(browser, visit = false)
+  def initialize browser, visit = false
     @browser = browser
     @checkout_header = @browser.div(:id => "checkout-header")
     @remove_link = @browser.link(:text => "Remove")
     @first_item_name_link = @browser.div(:class => "item-details").link
-    @browser.goto URLS[:production] if visit
-    super
+    super(TITLE, visit, URL)
   end
 
   def first_item_name_text

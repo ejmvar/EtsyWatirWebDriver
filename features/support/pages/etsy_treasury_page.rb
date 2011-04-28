@@ -1,6 +1,4 @@
-class EtsyTreasuryPage
-  include PageMixIn
-  
+class EtsyTreasuryPage < EtsyBasePage
   TITLE = "Etsy - Treasury"
 
   attr_accessor :list_treasury, :item_treasury, :item_hotness, :item_info, :item_stats, :item_preview
@@ -13,8 +11,6 @@ class EtsyTreasuryPage
     @item_info = @item_treasury.div(:class => "item-treasury-info")
     @item_stats = @item_treasury.div(:class => "item-treasury-stats")
     @item_preview = @item_treasury.div(:class => "item-treasury-preview")
-    @browser.title.should == TITLE
-    super
+    super TITLE
   end
-
 end

@@ -1,19 +1,15 @@
-class EtsyAdvancedSearchPage
-  include PageMixIn
+class EtsyAdvancedSearchPage < EtsyBasePage
+  TITLE = "Etsy :: Advanced Search"
+  URL = BASE_URL + "search_advanced.php"
 
   attr_accessor :sub_category_select, :search_field, :search_button
 
-  URLS = { :production => "http://www.etsy.com/search_advanced.php" }
-  TITLE = "Etsy :: Advanced Search"
-
-  def initialize(browser, visit = false)
+  def initialize browser, visit = false
     @browser = browser
     @search_field = @browser.text_field(:id => "search_query")
     @sub_category_select = @browser.div(:class => "search-category").select_list
     @search_button = @browser.div(:id => "advanced-search").button
-    @browser.goto URLS[:production] if visit
-    @browser.title.should == TITLE
-    super
+    super TITLE, visit, URL
   end
 
   def specify_sub_category sub_category
