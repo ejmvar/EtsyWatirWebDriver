@@ -1,7 +1,8 @@
 BASE_URL = "http://www.etsy.com/"
-TEST_DATA_DIR = "./features/support/test_data"
 
 require 'watir-webdriver'
+require File.dirname(__FILE__)+'/watir_webdriver_helper'
+
 browser = Watir::Browser.new :chrome
 
 Before do

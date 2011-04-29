@@ -1,16 +1,11 @@
-class EtsyBuyPage < EtsyBasePage
-  TITLE = "Etsy - Buy"
+class EtsyBuyPage < EtsySuperPage
 
-  attr_accessor :treasury_button
-
-  def initialize browser
-    @browser = browser
-    @treasury_button = @browser.link(:id => "treasury-panel-button")
-    super TITLE
-  end
+  expected_title "Etsy - Buy"
+  link :treasury_button, :id => "treasury-panel-button"
 
   def click_treasury_button
-    self.treasury_button.click
+    self.treasury_button
     EtsyTreasuryPage.new(@browser)
   end
+
 end

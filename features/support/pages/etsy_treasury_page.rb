@@ -1,16 +1,23 @@
-class EtsyTreasuryPage < EtsyBasePage
-  TITLE = "Etsy - Treasury"
+class EtsyTreasuryPage < EtsySuperPage
 
-  attr_accessor :list_treasury, :item_treasury, :item_hotness, :item_info, :item_stats, :item_preview
+  expected_title "Etsy - Treasury"
+  div :list_treasury, :class => "list-treasury"
+  li :item_treasury, :class => "item-treasury"
 
-  def initialize(browser)
-    @browser = browser
-    @list_treasury = @browser.div(:class => "list-treasury")
-    @item_treasury = @list_treasury.li(:class => "item-treasury")
-    @item_hotness = @item_treasury.div(:class => "item-treasury-hotness")
-    @item_info = @item_treasury.div(:class => "item-treasury-info")
-    @item_stats = @item_treasury.div(:class => "item-treasury-stats")
-    @item_preview = @item_treasury.div(:class => "item-treasury-preview")
-    super TITLE
+  div :item_hotness do | item_treasury |
+    item_treasury.div :class => "item-treasury-hotness"
   end
+
+  div :item_info do | item_treasury |
+    item_treasury.div(:class => "item-treasury-info")
+  end
+
+  div :item_stats do | item_treasury |
+    item_treasury.div(:class => "item-treasury-stats")
+  end
+
+  div :item_preview do | item_treasury |
+    item_treasury.div(:class => "item-treasury-preview")
+  end
+
 end

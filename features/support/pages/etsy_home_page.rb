@@ -1,17 +1,11 @@
-class EtsyHomePage < EtsyBasePage
-  TITLE = "Etsy - Your place to buy and sell all things handmade, vintage, and supplies"
-  URL = BASE_URL
+class EtsyHomePage < EtsySuperPage
 
-  attr_accessor :buy_link
-
-  def initialize browser, visit = false
-    @browser = browser
-    @buy_link = @browser.link(:text => "Buy")
-    super(TITLE, visit, URL)
-  end
+  expected_title "Etsy - Your place to buy and sell all things handmade, vintage, and supplies"
+  direct_url_suffix ""
+  link :buy, :text => "Buy"
 
   def click_buy
-    self.buy_link.click
+    self.buy
     EtsyBuyPage.new(@browser)
   end
 end

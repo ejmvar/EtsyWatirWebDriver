@@ -1,21 +1,11 @@
-class EtsyItemPage < EtsyBasePage
-  TITLE = /.+/
+class EtsyItemPage < EtsySuperPage
 
-  attr_accessor :add_to_cart_button, :item_title
-
-  def initialize browser
-    @browser = browser
-    @add_to_cart_button = @browser.button(:value => "Add to Cart")
-    @item_title = @browser.div(:id => "item-title")
-    super TITLE
-  end
-
-  def item_title_text
-    self.item_title.text
-  end
+  expected_title /.+/
+  button :add_to_cart, :value => "Add to Cart"
+  div :item_title, :id => "item-title"
 
   def click_add_to_cart
-    self.add_to_cart_button.click
-    EtsyCartPage.new(@browser, false)
+    add_to_cart
+    EtsyCartPage.new @browser, false
   end
 end

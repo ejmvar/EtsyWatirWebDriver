@@ -32,31 +32,31 @@ When /^an item is added to the cart$/ do
   @advanced_search_page = EtsyAdvancedSearchPage.new(@browser, true)
   @search_results_page = @advanced_search_page.search_for "hat"
   @etsy_item_page = @search_results_page.click_first_result
-  @item_title = @etsy_item_page.item_title_text
+  @item_title = @etsy_item_page.item_title
   @etsy_cart_page = @etsy_item_page.click_add_to_cart
 end
 
 Then /^I should see some search results for '(.+)'$/ do |search_term|
-  @search_results_page.search_results_text.should =~ /\d+,?\d* results for #{search_term}/
-  @search_results_page.search_results_text.should_not =~ /We didn't find anything for #{search_term}\./
+  @search_results_page.search_results.should =~ /\d+,?\d* results for #{search_term}/
+  @search_results_page.search_results.should_not =~ /We didn't find anything for #{search_term}\./
 end
 
 Then /^I should see no search results for '(.+)'$/ do |search_term|
-  @search_results_page.search_results_text.should =~ /We didn't find anything for #{search_term}\./
-  @search_results_page.search_results_text.should_not =~ /\d+,?\d* results for #{search_term}/
+  @search_results_page.search_results.should =~ /We didn't find anything for #{search_term}\./
+  @search_results_page.search_results.should_not =~ /\d+,?\d* results for #{search_term}/
 end
 
 Then /^I should see that the search was for '(.+)' instead of '(.+)'$/ do |new_search_term, search_term|
-  @search_results_page.spelling_text.should == "No results found for #{search_term}, searching instead for #{new_search_term}."
+  @search_results_page.spelling.should == "No results found for #{search_term}, searching instead for #{new_search_term}."
 end
 
 Then /^results will be displayed in the gallery$/ do
-  @etsy_treasury_page.list_treasury.exists?.should be_true
-  @etsy_treasury_page.item_treasury.exists?.should be_true
-  @etsy_treasury_page.item_hotness.exists?.should be_true
-  @etsy_treasury_page.item_info.exists?.should be_true
-  @etsy_treasury_page.item_stats.exists?.should be_true
-  @etsy_treasury_page.item_preview.exists?.should be_true
+  @etsy_treasury_page.list_treasury_div.exists?.should be_true
+  @etsy_treasury_page.item_treasury_li.exists?.should be_true
+  @etsy_treasury_page.item_hotness_div.exists?.should be_true
+  @etsy_treasury_page.item_info_div.exists?.should be_true
+  @etsy_treasury_page.item_stats_div.exists?.should be_true
+  @etsy_treasury_page.item_preview_div.exists?.should be_true
 end
 
 Then /^the cart contains that item$/ do
