@@ -1,4 +1,4 @@
-class EtsyItemPage < EtsySuperPage
+class EtsyItemPage < BasePageClass
 
   expected_title /.+/
   button :add_to_cart, :value => "Add to Cart"

@@ -1,4 +1,4 @@
-class EtsyAdvancedSearchPage < EtsySuperPage
+class EtsyAdvancedSearchPage < BasePageClass
 
   expected_title "Etsy :: Advanced Search"
   direct_url_suffix "search_advanced.php"

@@ -1,4 +1,4 @@
-class EtsyBuyPage < EtsySuperPage
+class EtsyBuyPage < BasePageClass
 
   expected_title "Etsy - Buy"
   link :treasury_button, :id => "treasury-panel-button"

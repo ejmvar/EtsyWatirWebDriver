@@ -1,4 +1,4 @@
-class EtsySuperPage
+class BasePageClass
   include WatirWebDriverHelper
 
   def initialize browser, visit = false

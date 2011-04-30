@@ -1,4 +1,4 @@
-class EtsySearchResultsPage < EtsySuperPage
+class EtsySearchResultsPage < BasePageClass
 
   expected_title /.+ on Etsy, a global handmade and vintage marketplace\./
   h1 :search_results, :class => "summary"

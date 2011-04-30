@@ -1,4 +1,4 @@
-class EtsyCartPage < EtsySuperPage
+class EtsyCartPage < BasePageClass
 
   expected_title "Etsy - Shopping Cart"
   direct_url_suffix "cart"

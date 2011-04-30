@@ -1,9 +1,16 @@
 BASE_URL = "http://www.etsy.com/"
 
 require 'watir-webdriver'
-require File.dirname(__FILE__)+'/watir_webdriver_helper'
+require File.dirname(__FILE__)+'/helpers/watir_webdriver_helper'
+require File.dirname(__FILE__)+'/pages/base_page_class'
 
-browser = Watir::Browser.new :chrome
+if ENV["HEADLESS"] then
+  include Selenium
+  capabilities = WebDriver::Remote::Capabilities.htmlunit(:javascript_enabled => true)
+  browser = Watir::Browser.new(:remote, :url => "http://127.0.0.1:4444/wd/hub", :desired_capabilities => capabilities)
+else
+  browser = Watir::Browser.new :chrome
+end
 
 Before do
   @browser = browser

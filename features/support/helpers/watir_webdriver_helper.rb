@@ -163,6 +163,17 @@ module WatirWebDriverHelper
       end
     end
 
+    # adds a method that returns the content of a <span>
+    # and another method that returns the span element
+    def span name, identifier=nil, &block
+      define_method(name) do
+        self.send("#{name}_span").text
+      end
+      define_method("#{name}_span") do
+        block ? block.call(@browser) : @browser.span(identifier)
+      end
+    end
+
     # adds a method that returns the content of a <p>
     # and another method that returns the div element
     def p name, identifier=nil, &block

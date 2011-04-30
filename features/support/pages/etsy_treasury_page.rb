@@ -1,4 +1,4 @@
-class EtsyTreasuryPage < EtsySuperPage
+class EtsyTreasuryPage < BasePageClass
 
   expected_title "Etsy - Treasury"
   div :list_treasury, :class => "list-treasury"
