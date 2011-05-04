@@ -1,7 +1,7 @@
 class EtsyCartPage < BasePageClass
 
   expected_title "Etsy - Shopping Cart"
-  direct_url_suffix "cart"
+  direct_url BASE_URL + "cart"
   div :checkout_header, :id => "checkout-header"
   link :remove, :text => "Remove"
   link :first_item_name do |browser|

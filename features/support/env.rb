@@ -1,7 +1,7 @@
 BASE_URL = "http://www.etsy.com/"
 
 require 'watir-webdriver'
-require File.dirname(__FILE__)+'/helpers/watir_webdriver_helper'
+require 'watir-page-helper'
 require File.dirname(__FILE__)+'/pages/base_page_class'
 
 if ENV["HEADLESS"] then

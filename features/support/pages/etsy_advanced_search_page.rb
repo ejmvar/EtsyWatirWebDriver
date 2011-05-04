@@ -1,7 +1,7 @@
 class EtsyAdvancedSearchPage < BasePageClass
 
   expected_title "Etsy :: Advanced Search"
-  direct_url_suffix "search_advanced.php"
+  direct_url BASE_URL + "search_advanced.php"
 
   text_field :search_box, :id => "search_query"
   select_list :sub_category do |browser|
