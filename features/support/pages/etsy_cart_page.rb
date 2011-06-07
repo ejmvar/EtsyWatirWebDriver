@@ -1,11 +1,12 @@
 class EtsyCartPage < BasePageClass
 
-  expected_title "Etsy - Shopping Cart"
-  direct_url BASE_URL + "cart"
-  div :checkout_header, :id => "checkout-header"
-  link :remove, :text => "Remove"
+  expected_element :div, :id => 'checkout-header'
+  expected_title 'Etsy - Shopping Cart'
+  direct_url BASE_URL + 'cart'
+  div :checkout_header, :id => 'checkout-header'
+  link :remove, :text => 'Remove'
   link :first_item_name do |browser|
-    browser.div(:class => "item-details").link
+    browser.div(:class => 'item-details').link
   end
 
   def first_item_name_text
@@ -14,7 +15,7 @@ class EtsyCartPage < BasePageClass
 
   def items_in_cart
     checkout_header_div.wait_until_present
-    checkout_header
+    checkout_header.gsub(' items in your cart', '').to_i
   end
 
   def remove_item
@@ -24,8 +25,8 @@ class EtsyCartPage < BasePageClass
 
   def ensure_cart_empty
     100.times do
-      remove if items_in_cart != "0 items in your cart"
-      break if items_in_cart == "0 items in your cart"
+      remove if items_in_cart != 0
+      break if items_in_cart == 0
     end
   end
 end

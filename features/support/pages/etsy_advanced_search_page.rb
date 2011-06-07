@@ -18,7 +18,6 @@ class EtsyAdvancedSearchPage < BasePageClass
   def search_for search_term
     self.search_box = search_term
     search
-    EtsySearchResultsPage.new(@browser)
   end
   
 end

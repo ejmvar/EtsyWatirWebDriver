@@ -1,74 +1,84 @@
 Given /^I am searching on Etsy\.com$/ do
-  @advanced_search_page = EtsyAdvancedSearchPage.new(@browser, true)
+  visit EtsyAdvancedSearchPage
 end
 
 Given /^I am on Etsy\.com$/ do
-  @etsy_home_page = EtsyHomePage.new(@browser, true)
+  visit EtsyHomePage
 end
 
 Given /^I am on the Etsy cart page$/ do
-  @etsy_cart_page = EtsyCartPage.new(@browser, true)
+  visit EtsyCartPage
 end
 
 Given /^that the cart is empty$/ do
-  @etsy_cart_page.ensure_cart_empty
-  @etsy_cart_page.items_in_cart.should == "0 items in your cart"
+  on EtsyCartPage do |page|
+    page.ensure_cart_empty
+    page.items_in_cart.should == 0
+  end
 end
 
 When /^I specify the (.+) sub category$/ do |sub_category|
-  @advanced_search_page.specify_sub_category sub_category
+  on EtsyAdvancedSearchPage do |page| page.specify_sub_category sub_category end
 end
 
 When /^I search for '(.+)'$/ do |search_term|
-  @search_results_page = @advanced_search_page.search_for search_term
+  on(EtsyAdvancedSearchPage) { |page| page.search_for search_term }
 end
 
 When /^I want to browse through a treasury gallery$/ do
-  @etsy_buy_page = @etsy_home_page.click_buy
-  @etsy_treasury_page = @etsy_buy_page.click_treasury_button
+  on EtsyHomePage do |page| page.click_buy end
+  on EtsyBuyPage do |page| page.click_treasury_button end
 end
 
 When /^an item is added to the cart$/ do
-  @advanced_search_page = EtsyAdvancedSearchPage.new(@browser, true)
-  @search_results_page = @advanced_search_page.search_for "hat"
-  @etsy_item_page = @search_results_page.click_first_result
-  @item_title = @etsy_item_page.item_title
-  @etsy_cart_page = @etsy_item_page.click_add_to_cart
+  visit EtsyAdvancedSearchPage do |page| page.search_for "hat" end
+  on EtsySearchResultsPage do |page| page.click_first_result end
+  on EtsyItemPage do |page|
+    @item_title = page.item_title
+    page.click_add_to_cart
+  end
 end
 
 Then /^I should see some search results for '(.+)'$/ do |search_term|
-  @search_results_page.search_results.should =~ /\d+,?\d* results for #{search_term}/
-  @search_results_page.search_results.should_not =~ /We didn't find anything for #{search_term}\./
+  on EtsySearchResultsPage do |page|
+    page.search_results.should =~ /\d+,?\d* results for #{search_term}/
+    page.search_results.should_not =~ /We didn't find anything for #{search_term}\./
+  end
 end
 
 Then /^I should see no search results for '(.+)'$/ do |search_term|
-  @search_results_page.search_results.should =~ /We didn't find anything for #{search_term}\./
-  @search_results_page.search_results.should_not =~ /\d+,?\d* results for #{search_term}/
+  on EtsySearchResultsPage do |page|
+    page.search_results.should =~ /We didn't find anything for #{search_term}\./
+    page.search_results.should_not =~ /\d+,?\d* results for #{search_term}/
+  end
 end
 
 Then /^I should see that the search was for '(.+)' instead of '(.+)'$/ do |new_search_term, search_term|
-  @search_results_page.spelling.should == "No results found for #{search_term}, searching instead for #{new_search_term}."
+  on EtsySearchResultsPage do |page| page.spelling.should == "No results found for #{search_term}, searching instead for #{new_search_term}." end
 end
 
 Then /^results will be displayed in the gallery$/ do
-  @etsy_treasury_page.list_treasury_div.exists?.should be_true
-  @etsy_treasury_page.item_treasury_li.exists?.should be_true
-  @etsy_treasury_page.item_hotness_div.exists?.should be_true
-  @etsy_treasury_page.item_info_div.exists?.should be_true
-  @etsy_treasury_page.item_stats_div.exists?.should be_true
-  @etsy_treasury_page.item_preview_div.exists?.should be_true
+  on EtsyTreasuryPage do |page|
+    page.list_treasury_div.exists?.should be_true
+    page.item_treasury_li.exists?.should be_true
+    page.item_hotness_div.exists?.should be_true
+    page.item_info_div.exists?.should be_true
+    page.item_stats_div.exists?.should be_true
+    page.item_preview_div.exists?.should be_true
+  end
 end
 
 Then /^the cart contains that item$/ do
-  @etsy_cart_page.items_in_cart.should == "1 item in your cart"
-  @etsy_cart_page.first_item_name_text.should == @item_title
+  on EtsyCartPage do |page|
+    page.items_in_cart.should == 1
+    page.first_item_name_text.should == @item_title
+  end
 end
 
 When /^I remove the item from the cart$/ do
-  @etsy_cart_page.remove_item
+  on EtsyCartPage do |page| page.remove_item end
 end
 
 Then /^the cart is empty$/ do
-  @etsy_cart_page.items_in_cart.should == "0 items in your cart"
+  on EtsyCartPage do |page| page.items_in_cart.should == 0 end
 end
-

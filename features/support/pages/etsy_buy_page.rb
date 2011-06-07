@@ -5,7 +5,6 @@ class EtsyBuyPage < BasePageClass
 
   def click_treasury_button
     self.treasury_button
-    EtsyTreasuryPage.new(@browser)
   end
 
 end

@@ -6,6 +6,5 @@ class EtsyHomePage < BasePageClass
 
   def click_buy
     self.buy
-    EtsyBuyPage.new(@browser)
   end
 end

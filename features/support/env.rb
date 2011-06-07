@@ -4,18 +4,23 @@ require 'watir-webdriver'
 require 'watir-page-helper'
 require File.dirname(__FILE__)+'/pages/base_page_class'
 
-if ENV["HEADLESS"] then
-  include Selenium
-  capabilities = WebDriver::Remote::Capabilities.htmlunit(:javascript_enabled => true)
-  browser = Watir::Browser.new(:remote, :url => "http://127.0.0.1:4444/wd/hub", :desired_capabilities => capabilities)
-else
-  browser = Watir::Browser.new :firefox
+
+module Browser
+  BROWSER = Watir::Browser.new ENV['WEB_DRIVER'] ||:firefox
+
+  def visit page_class, &block
+    on page_class, true, &block
+  end
+
+  def on page_class, visit=false, &block
+    page = page_class.new BROWSER, visit
+    block.call page if block
+    page
+  end
 end
 
-Before do
-  @browser = browser
-end
+World Browser
 
 at_exit do
-  browser.close
+  Browser::BROWSER.close
 end

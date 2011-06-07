@@ -7,6 +7,5 @@ class EtsySearchResultsPage < BasePageClass
 
   def click_first_result
     first_result
-    EtsyItemPage.new(@browser)
   end
 end
