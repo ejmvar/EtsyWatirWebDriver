@@ -2,8 +2,10 @@ BASE_URL = "http://www.etsy.com/"
 
 require 'watir-webdriver'
 require 'watir-page-helper'
-require File.dirname(__FILE__)+'/pages/base_page_class'
 
+$: << File.dirname(__FILE__)+'/../../lib'
+
+require 'pages.rb'
 
 module Browser
   BROWSER = Watir::Browser.new ENV['WEB_DRIVER'] ||:firefox
