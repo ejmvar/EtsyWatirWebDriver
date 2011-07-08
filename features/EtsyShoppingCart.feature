@@ -1,4 +1,3 @@
-@cart
 Feature: Etsy Cart Functionality
 	In order to show the basic cart functionality
 	As a user
