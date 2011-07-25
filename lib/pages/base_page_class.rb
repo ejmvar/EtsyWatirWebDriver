@@ -8,6 +8,7 @@ class BasePageClass
       @browser.button(:value => 'Okay').click if @browser.button(:value => 'Okay').visible?
       sleep 0.2
     end
+    expected_element if respond_to? :expected_element
     has_expected_title? if respond_to? :has_expected_title?
   end
 
