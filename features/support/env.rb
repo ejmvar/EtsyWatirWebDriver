@@ -21,20 +21,6 @@ module Metrics
   end
 end
 
-# Monkey Patching Watir-WebDriver-Peformance
-module Watir
-  class Browser
-    def performance_supported?
-      driver.execute_script("return window.performance || window.webkitPerformance || window.mozPerformance || window.msPerformance;")
-    end
-    alias performance_data performance_supported?
-
-    def with_performance
-       yield PerformanceHelper.new(performance_data).munge if performance_supported?
-    end
-  end
-end
-
 module Browser
   DRIVER = ENV['WEB_DRIVER'] || :firefox
   BROWSER = Watir::Browser.new DRIVER
@@ -61,6 +47,6 @@ end
 
 at_exit do
   puts Metrics.page_metrics.summary
-  File.open('page_metrics.yml', 'w') { |file| file.puts Metrics.page_metrics.summary }
+  File.open('pagemetrics.yml', 'w') { |file| file.puts Metrics.page_metrics.summary }
   Browser::BROWSER.close
 end
