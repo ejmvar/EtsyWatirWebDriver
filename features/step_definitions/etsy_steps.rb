@@ -59,12 +59,14 @@ end
 
 Then /^results will be displayed in the gallery$/ do
   on EtsyTreasuryPage do |page|
-    page.list_treasury_div.exists?.should be_true
-    page.item_treasury_li.exists?.should be_true
-    page.item_hotness_div.exists?.should be_true
-    page.item_info_div.exists?.should be_true
-    page.item_stats_div.exists?.should be_true
-    page.item_preview_div.exists?.should be_true
+    #page.list_treasury_div.should be_exists
+    page.list_treasury_div.should be_shown
+    page.item_treasury_li.should be_shown
+    page.item_hotness_div.should be_shown
+    #page.item_info_div.exists?.should be_true
+    page.item_info_div.should be_shown
+    page.item_stats_div.should be_shown
+    page.item_preview_div.should be_shown
   end
 end
 
