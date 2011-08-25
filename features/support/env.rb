@@ -3,6 +3,11 @@ BASE_URL = "http://www.etsy.com/"
 require 'watir-webdriver'
 require 'watir-webdriver-performance'
 require 'watir-page-helper'
+require 'headless'
+
+
+headless = Headless.new
+headless.start
 
 $: << File.dirname(__FILE__)+'/../../lib'
 
@@ -49,4 +54,5 @@ at_exit do
   puts Metrics.page_metrics.summary
   File.open('pagemetrics.yml', 'w') { |file| file.puts Metrics.page_metrics.summary }
   Browser::BROWSER.close
+  headless.destroy
 end

@@ -15,18 +15,15 @@ GEM
       nokogiri (>= 1.4.1)
     diff-lcs (1.1.2)
     ffi (1.0.9)
-<<<<<<< HEAD
-    gherkin (2.4.16)
-=======
     ffi (1.0.9-java)
     ffi (1.0.9-x86-mingw32)
-    gherkin (2.4.1)
->>>>>>> 2ee92b12690c83597de4b044ae1c8eff0bc923dd
+    gherkin (2.4.16)
       json (>= 1.4.6)
-    gherkin (2.4.1-java)
+    gherkin (2.4.16-java)
       json (>= 1.4.6)
-    gherkin (2.4.1-x86-mingw32)
+    gherkin (2.4.16-x86-mingw32)
       json (>= 1.4.6)
+    headless (0.1.0)
     json (1.5.3)
     json (1.5.3-java)
     json_pure (1.5.3)
@@ -64,6 +61,7 @@ PLATFORMS
 DEPENDENCIES
   cucumber (> 0.0)
   cuporter (> 0.0)
+  headless (> 0.0)
   rspec (> 0.0)
   watir-page-helper (> 0.0)
   watir-webdriver (> 0.2.4)
