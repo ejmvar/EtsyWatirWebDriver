@@ -28,7 +28,9 @@ end
 
 module Browser
   DRIVER = ENV['WEB_DRIVER'] || :firefox
-  BROWSER = Watir::Browser.new DRIVER
+  client = Selenium::WebDriver::Remote::Http::Default.new
+  client.timeout = 180
+  BROWSER = Watir::Browser.new DRIVER, :http_client => client
 
   def visit page_class, &block
     on page_class, true, &block
