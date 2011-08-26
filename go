@@ -1,5 +1,5 @@
-#!/bin/bash -e
-source "$HOME/.rvm/scripts/rvm"
+#!/bin/bash -x
+source ~/.bash_profile
 # Use the correct ruby
 [[ -s ".rvmrc" ]] && source .rvmrc
 bundle install
