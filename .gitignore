@@ -3,3 +3,4 @@ results.html
 .bundle/*
 chromedriver.log
 pagemetrics.yml
+screenshots*

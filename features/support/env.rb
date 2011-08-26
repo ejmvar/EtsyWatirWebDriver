@@ -45,9 +45,17 @@ end
 include Browser
 World Browser
 
-# Get rid of annoying locale setup popup
 visit EtsyAdvancedSearchPage do |page|
   page.get_rid_of_annoying_locale_settings
+end
+
+After do |scenario|
+  Dir::mkdir('screenshots') if not File.directory?('screenshots')
+  screenshot = "./screenshots/FAILED_#{scenario.name.gsub(' ','_').gsub(/[^0-9A-Za-z_]/, '')}.png"
+  if scenario.failed?
+    Browser::BROWSER.driver.save_screenshot(screenshot)
+    embed screenshot, 'image/png'
+  end
 end
 
 at_exit do
