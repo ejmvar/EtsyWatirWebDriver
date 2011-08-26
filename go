@@ -1,9 +1,6 @@
-#! /usr/bin/env bash
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-rvm rvmrc trust
-cd features
-cd .. # hack to load RVMRC
-set -e
-gem install bundler --no-rdoc --no-ri
+#!/bin/bash -e
+source "$HOME/.rvm/scripts/rvm"
+# Use the correct ruby
+[[ -s ".rvmrc" ]] && source .rvmrc
 bundle install
 cucumber -p ci
