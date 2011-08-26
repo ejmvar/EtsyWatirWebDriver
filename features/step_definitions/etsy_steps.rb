@@ -19,7 +19,6 @@ end
 
 When /^I specify the (.+) sub category$/ do |sub_category|
   on EtsyAdvancedSearchPage do |page| page.specify_sub_category sub_category end
-  fail
 end
 
 When /^I search for '(.+)'$/ do |search_term|
