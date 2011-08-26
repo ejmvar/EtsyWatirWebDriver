@@ -6,4 +6,4 @@ cd .. # hack to load RVMRC
 set -e
 gem install bundler --no-rdoc --no-ri
 bundle install
-cucumber
+cucumber -p ci
