@@ -1,6 +1,6 @@
 class EtsyItemPage < BasePageClass
 
-  expected_title /.+/
+  expected_title /.+ on Etsy$/
   button :add_to_cart, :value => "Add to Cart"
   div :item_title, :id => "item-title"
 
