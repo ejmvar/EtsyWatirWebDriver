@@ -23,7 +23,10 @@ class EtsyAdvancedSearchPage < BasePageClass
   end
 
   def get_rid_of_annoying_locale_settings
-    accept_locale_button.when_present.click
-    accept_locale_button.wait_while_present
+    sleep 3
+    if accept_locale_button.exists?
+      accept_locale_button.click
+      accept_locale_button.wait_while_present
+    end
   end
 end
