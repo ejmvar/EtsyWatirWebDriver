@@ -10,7 +10,6 @@ class EtsyAdvancedSearchPage < BasePageClass
   button :search do |page|
     page.div(:id => "advanced-search").button
   end
-  button :accept_locale, :value => 'Okay'
 
 
   def specify_sub_category sub_category
@@ -22,11 +21,4 @@ class EtsyAdvancedSearchPage < BasePageClass
     search
   end
 
-  def get_rid_of_annoying_locale_settings
-    sleep 3
-    if accept_locale_button.exists?
-      accept_locale_button.click
-      accept_locale_button.wait_while_present
-    end
-  end
 end
