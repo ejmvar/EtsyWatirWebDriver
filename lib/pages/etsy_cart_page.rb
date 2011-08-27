@@ -8,6 +8,7 @@ class EtsyCartPage < BasePageClass
   link :first_item_name do |browser|
     browser.div(:class => 'item-details').link
   end
+  div :zero_items_in_cart, :text => '0 items in your cart'
 
   def first_item_name_text
     first_item_name_link.text
@@ -20,7 +21,7 @@ class EtsyCartPage < BasePageClass
 
   def remove_item
     remove
-    remove_link.wait_while_present
+    zero_items_in_cart_div.wait_until_present
   end
 
   def ensure_cart_empty

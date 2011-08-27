@@ -13,6 +13,11 @@ module Watir
 end
 
 if ENV['HEADLESS']
+  FileUtils.rm 'results.html'
+  FileUtils.rm_rf 'screenshots'
+  FileUtils.rm_rf 'junit'
+  Dir::mkdir 'junit'
+
   require 'headless'
   headless = Headless.new
   headless.start
