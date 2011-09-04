@@ -13,9 +13,9 @@ module Watir
 end
 
 if ENV['HEADLESS']
-  FileUtils.rm 'results.html'
-  FileUtils.rm_rf 'screenshots'
-  FileUtils.rm_rf 'junit'
+  FileUtils.rm 'results.html' if File.exists? 'results.html'
+  FileUtils.rm_rf 'screenshots' if File.exists? 'screenshots'
+  FileUtils.rm_rf 'junit' if File.exists? 'junit'
   Dir::mkdir 'junit'
 
   require 'headless'
