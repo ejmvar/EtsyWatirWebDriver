@@ -13,7 +13,7 @@ class PageMetrics
   def summary
     summary = []
     @pages.each do |page, metrics|
-      average = metrics.inject(0) { |sum, metric| sum + metric.summary[:response_time] }/metrics.size/1000
+      average = metrics.inject(0) { |sum, metric| sum + metric.summary[:response_time] }/1000/metrics.size
       result = {
         :page => page.to_s,
         :visits => metrics.size,
