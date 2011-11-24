@@ -1,0 +1,202 @@
+[
+  {
+    "source": "^I am searching on Etsy\\.com$",
+    "flags": "",
+    "steps": [
+      {
+        "name": "I am searching on Etsy.com",
+        "args": [
+
+        ]
+      }
+    ]
+  },
+  {
+    "source": "^I am on Etsy\\.com$",
+    "flags": "",
+    "steps": [
+      {
+        "name": "I am on Etsy.com",
+        "args": [
+
+        ]
+      }
+    ]
+  },
+  {
+    "source": "^I am on the Etsy cart page$",
+    "flags": "",
+    "steps": [
+      {
+        "name": "I am on the Etsy cart page",
+        "args": [
+
+        ]
+      }
+    ]
+  },
+  {
+    "source": "^that the cart is empty$",
+    "flags": "",
+    "steps": [
+      {
+        "name": "that the cart is empty",
+        "args": [
+
+        ]
+      }
+    ]
+  },
+  {
+    "source": "^I specify the (.+) sub category$",
+    "flags": "",
+    "steps": [
+      {
+        "name": "I specify the <Sub Category> sub category",
+        "args": [
+          {
+            "offset": 14,
+            "val": "<Sub Category>"
+          }
+        ]
+      },
+      {
+        "name": "I specify the Knitting sub category",
+        "args": [
+          {
+            "offset": 14,
+            "val": "Knitting"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": "^I search for '(.+)'$",
+    "flags": "",
+    "steps": [
+      {
+        "name": "I search for 'scarlf'",
+        "args": [
+          {
+            "offset": 14,
+            "val": "scarlf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": "^I want to browse through a treasury gallery$",
+    "flags": "",
+    "steps": [
+      {
+        "name": "I want to browse through a treasury gallery",
+        "args": [
+
+        ]
+      }
+    ]
+  },
+  {
+    "source": "^an item is added to the cart$",
+    "flags": "",
+    "steps": [
+      {
+        "name": "an item is added to the cart",
+        "args": [
+
+        ]
+      }
+    ]
+  },
+  {
+    "source": "^I should see some search results for '(.+)'$",
+    "flags": "",
+    "steps": [
+      {
+        "name": "I should see some search results for 'scarf'",
+        "args": [
+          {
+            "offset": 38,
+            "val": "scarf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": "^I should see no search results for '(.+)'$",
+    "flags": "",
+    "steps": [
+
+    ]
+  },
+  {
+    "source": "^I should see that the search was for '(.+)' instead of '(.+)'$",
+    "flags": "",
+    "steps": [
+      {
+        "name": "I should see that the search was for 'scarf' instead of 'scarlf'",
+        "args": [
+          {
+            "offset": 38,
+            "val": "scarf"
+          },
+          {
+            "offset": 57,
+            "val": "scarlf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": "^results will be displayed in the gallery$",
+    "flags": "",
+    "steps": [
+      {
+        "name": "results will be displayed in the gallery",
+        "args": [
+
+        ]
+      }
+    ]
+  },
+  {
+    "source": "^the cart contains that item$",
+    "flags": "",
+    "steps": [
+      {
+        "name": "the cart contains that item",
+        "args": [
+
+        ]
+      }
+    ]
+  },
+  {
+    "source": "^I remove the item from the cart$",
+    "flags": "",
+    "steps": [
+      {
+        "name": "I remove the item from the cart",
+        "args": [
+
+        ]
+      }
+    ]
+  },
+  {
+    "source": "^the cart is empty$",
+    "flags": "",
+    "steps": [
+      {
+        "name": "the cart is empty",
+        "args": [
+
+        ]
+      }
+    ]
+  }
+]

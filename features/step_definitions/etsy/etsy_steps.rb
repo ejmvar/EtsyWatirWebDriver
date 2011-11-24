@@ -41,7 +41,7 @@ end
 
 Then /^I should see some search results for '(.+)'$/ do |search_term|
   on EtsySearchResultsPage do |page|
-    page.search_results.should =~ /\d+,?\d* items for #{search_term}/
+    page.search_results.should =~ /\d+,?\d* items? for #{search_term}/
     page.search_results.should_not =~ /We didn't find anything for #{search_term}\./
   end
 end

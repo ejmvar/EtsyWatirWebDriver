@@ -17,6 +17,6 @@
   Scenario: Misspelling a word corrects search automatically
     Given I am searching on Etsy.com
     When I specify the Knitting sub category
-    And I search for 'scalf'
+    And I search for 'scarlf'
     Then I should see some search results for 'scarf'
-    And I should see that the search was for 'scarf' instead of 'scalf'
+    And I should see that the search was for 'scarf' instead of 'scarlf'
