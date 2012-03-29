@@ -2,6 +2,7 @@
   {
     "source": "^I am searching on Etsy\\.com$",
     "flags": "",
+    "file_colon_line": "features/step_definitions/etsy/etsy_steps.rb:1",
     "steps": [
       {
         "name": "I am searching on Etsy.com",
@@ -14,6 +15,7 @@
   {
     "source": "^I am on Etsy\\.com$",
     "flags": "",
+    "file_colon_line": "features/step_definitions/etsy/etsy_steps.rb:5",
     "steps": [
       {
         "name": "I am on Etsy.com",
@@ -26,6 +28,7 @@
   {
     "source": "^I am on the Etsy cart page$",
     "flags": "",
+    "file_colon_line": "features/step_definitions/etsy/etsy_steps.rb:9",
     "steps": [
       {
         "name": "I am on the Etsy cart page",
@@ -38,6 +41,7 @@
   {
     "source": "^that the cart is empty$",
     "flags": "",
+    "file_colon_line": "features/step_definitions/etsy/etsy_steps.rb:13",
     "steps": [
       {
         "name": "that the cart is empty",
@@ -50,6 +54,7 @@
   {
     "source": "^I specify the (.+) sub category$",
     "flags": "",
+    "file_colon_line": "features/step_definitions/etsy/etsy_steps.rb:20",
     "steps": [
       {
         "name": "I specify the <Sub Category> sub category",
@@ -74,6 +79,7 @@
   {
     "source": "^I search for '(.+)'$",
     "flags": "",
+    "file_colon_line": "features/step_definitions/etsy/etsy_steps.rb:24",
     "steps": [
       {
         "name": "I search for 'scarlf'",
@@ -89,6 +95,7 @@
   {
     "source": "^I want to browse through a treasury gallery$",
     "flags": "",
+    "file_colon_line": "features/step_definitions/etsy/etsy_steps.rb:28",
     "steps": [
       {
         "name": "I want to browse through a treasury gallery",
@@ -101,6 +108,7 @@
   {
     "source": "^an item is added to the cart$",
     "flags": "",
+    "file_colon_line": "features/step_definitions/etsy/etsy_steps.rb:33",
     "steps": [
       {
         "name": "an item is added to the cart",
@@ -113,6 +121,7 @@
   {
     "source": "^I should see some search results for '(.+)'$",
     "flags": "",
+    "file_colon_line": "features/step_definitions/etsy/etsy_steps.rb:42",
     "steps": [
       {
         "name": "I should see some search results for 'scarf'",
@@ -128,6 +137,7 @@
   {
     "source": "^I should see no search results for '(.+)'$",
     "flags": "",
+    "file_colon_line": "features/step_definitions/etsy/etsy_steps.rb:49",
     "steps": [
 
     ]
@@ -135,6 +145,7 @@
   {
     "source": "^I should see that the search was for '(.+)' instead of '(.+)'$",
     "flags": "",
+    "file_colon_line": "features/step_definitions/etsy/etsy_steps.rb:56",
     "steps": [
       {
         "name": "I should see that the search was for 'scarf' instead of 'scarlf'",
@@ -154,6 +165,7 @@
   {
     "source": "^results will be displayed in the gallery$",
     "flags": "",
+    "file_colon_line": "features/step_definitions/etsy/etsy_steps.rb:60",
     "steps": [
       {
         "name": "results will be displayed in the gallery",
@@ -166,6 +178,7 @@
   {
     "source": "^the cart contains that item$",
     "flags": "",
+    "file_colon_line": "features/step_definitions/etsy/etsy_steps.rb:73",
     "steps": [
       {
         "name": "the cart contains that item",
@@ -178,6 +191,7 @@
   {
     "source": "^I remove the item from the cart$",
     "flags": "",
+    "file_colon_line": "features/step_definitions/etsy/etsy_steps.rb:80",
     "steps": [
       {
         "name": "I remove the item from the cart",
@@ -190,6 +204,7 @@
   {
     "source": "^the cart is empty$",
     "flags": "",
+    "file_colon_line": "features/step_definitions/etsy/etsy_steps.rb:84",
     "steps": [
       {
         "name": "the cart is empty",
